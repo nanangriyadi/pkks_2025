@@ -67,3 +67,21 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
 - [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
 # pkks_ci4
+Menjalankan Proyek
+Lakukan instalasi semua depedencies yang dibutuhkan dengan composer. Ketik perintah berikut pada root direktori project.
+
+composer install
+Buat database di Phpmyadmin dan ubah konfigurasi database dengan import file backup
+
+
+edit env
+
+	'hostname' => 'localhost',
+	'username' => 'root', // <- sesuaikan dengan username mysql
+	'password' => '', // <- isi dengan password user mysql
+	'database' => 'pkks-2025', //<- sesuaikan nama database dengan yang kamu buat
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	
+
+
