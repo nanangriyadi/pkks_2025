@@ -70,7 +70,8 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 Menjalankan Proyek
 Lakukan instalasi semua depedencies yang dibutuhkan dengan composer. Ketik perintah berikut pada root direktori project.
 
-composer install
+'composer install',
+
 Buat database di Phpmyadmin dan ubah konfigurasi database dengan import file backup
 
 
