@@ -84,5 +84,112 @@ edit env
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	
+Dengan menggunakan migration 
 
+	php spark make:migration create_About_table
 
+ 
+	<?php
+	
+	namespace App\Database\Migrations;
+	
+	use CodeIgniter\Database\Migration;
+	
+	class CreateAboutTable extends Migration
+	{
+	    public function up()
+	    {
+		$this->forge->addField([
+		    'id' => [
+			'type'           => 'INT',
+			'constraint'     => 11,
+			'unsigned'       => true,
+			'auto_increment' => true,
+		    ],
+		    'description' => [
+			'type' => 'TEXT',
+		    ],
+		    'uploaded_at' => [
+			'type'    => 'DATETIME',
+			'default' => \CodeIgniter\Database\RawSql::currentTime(),
+		    ],
+		]);
+		$this->forge->addKey('id', true);
+		$this->forge->createTable('about');
+	    }
+	
+	    public function down()
+	    {
+		$this->forge->dropTable('about');
+	    }
+	}
+	
+
+Dengan menggunakan migration 
+
+	php spark make:migration create_Portfolio_table
+
+	 <?php
+	
+	namespace App\Database\Migrations;
+	
+	use CodeIgniter\Database\Migration;
+	
+	class CreatePortfolioTable extends Migration
+	{
+	    public function up()
+	    {
+	        $this->forge->addField([
+	            'id' => [
+	                'type'           => 'INT',
+	                'constraint'     => 11,
+	                'unsigned'       => true,
+	                'auto_increment' => true,
+	            ],
+	            'file_name' => [
+	                'type'       => 'VARCHAR',
+	                'constraint' => '255',
+	            ],
+	            'file_path' => [
+	                'type'       => 'VARCHAR',
+	                'constraint' => '255',
+	            ],
+	            'file_type' => [
+	                'type'       => 'VARCHAR',
+	                'constraint' => '100',
+	            ],
+	            'file_category' => [
+	                'type'       => 'VARCHAR',
+	                'constraint' => '50',
+	                'default'    => 'pdf',
+	            ],
+	            'is_pdf' => [
+	                'type'       => 'TINYINT',
+	                'constraint' => 1,
+	            ],
+	            'is_video' => [
+	                'type'       => 'TINYINT',
+	                'constraint' => 1,
+	            ],
+	            'file_size' => [
+	                'type'       => 'INT',
+	                'constraint' => 11,
+	            ],
+	            'description' => [
+	                'type'    => 'TEXT',
+	                'null'    => true,
+	            ],
+	            'uploaded_at' => [
+	                'type'    => 'TIMESTAMP',
+	                'default' => \CodeIgniter\Database\RawSql::currentTime(),
+	            ],
+	        ]);
+	        $this->forge->addKey('id', true);
+	        $this->forge->createTable('portfolio');
+	    }
+	
+	    public function down()
+	    {
+	        $this->forge->dropTable('portfolio');
+	    }
+	}
